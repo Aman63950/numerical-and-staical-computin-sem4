@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+int main() {
+    float a[3][4] = {
+        {2,1,-1,8},
+        {-3,-1,2,-11},
+        {-2,1,2,-3}
+    };
+    int i,j,k;
+    float factor;
+
+    for(i=0;i<3;i++){
+        for(j=i+1;j<3;j++){
+            factor = a[j][i]/a[i][i];
+            for(k=0;k<4;k++){
+                a[j][k] -= factor*a[i][k];
+            }
+        }
+    }
+
+    float x[3];
+    for(i=2;i>=0;i--){
+        x[i]=a[i][3];
+        for(j=i+1;j<3;j++){
+            x[i]-=a[i][j]*x[j];
+        }
+        x[i]/=a[i][i];
+    }
+
+    printf("Solution: x=%f y=%f z=%f",x[0],x[1],x[2]);
+    return 0;
+}
