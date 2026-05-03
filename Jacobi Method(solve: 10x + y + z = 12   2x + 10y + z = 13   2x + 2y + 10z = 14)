@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main() {
+    float x=0,y=0,z=0,x1,y1,z1;
+    int i;
+
+    for(i=1;i<=10;i++){
+        x1 = (12 - y - z)/10;
+        y1 = (13 - 2*x - z)/10;
+        z1 = (14 - 2*x - 2*y)/10;
+
+        x=x1; y=y1; z=z1;
+
+        printf("Iteration %d: x=%f y=%f z=%f\n",i,x,y,z);
+    }
+    return 0;
+}
