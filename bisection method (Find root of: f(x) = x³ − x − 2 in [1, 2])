@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <math.h>
+
+float f(float x) {
+    return x*x*x - x - 2;
+}
+
+int main() {
+    float a=1, b=2, c;
+    int i;
+
+    for(i=1; i<=10; i++) {
+        c = (a + b) / 2;
+
+        if(f(c) == 0)
+            break;
+        else if(f(a)*f(c) < 0)
+            b = c;
+        else
+            a = c;
+
+        printf("Iteration %d: Root = %f\n", i, c);
+    }
+    return 0;
+}
